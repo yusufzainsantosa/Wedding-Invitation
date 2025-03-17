@@ -1,0 +1,183 @@
+/* Invitation */
+.invitation_heading {
+  font-size: 18px;
+}
+
+.invitation .send-button {
+  margin-top: 10px;
+}
+
+.invitation .form-wrapper {
+  background: white;
+  padding: 20px 35px 30px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 992px) {
+  .invitation .form-wrapper {
+    margin-bottom: 0;
+  }
+}
+
+.invitation h3 {
+  margin: 10px 0;
+}
+
+.invitation .video {
+  height: 450px;
+  overflow: hidden;
+  border-radius: 0;
+  background-image: url(https://html.fairytheme.net/belle/images/video-bg.jpg);
+}
+
+@media (min-width: 768px) {
+  .invitation .video {
+    height: 100%;
+  }
+}
+
+.invitation .video:hover .overlay {
+  opacity: 0.5;
+}
+
+.invitation .video a {
+  z-index: 1001;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: table;
+  text-align: center;
+  color: rgba(white, 0.5);
+  text-decoration: none;
+}
+
+.invitation .video a i {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.invitation .video .overlay {
+  transition: all 0.5s ease;
+}
+
+.invitation .form-field {
+  position: relative;
+  margin: 17px 0;
+}
+
+.invitation .form-field .control-label {
+  padding: 0;
+  line-height: 1;
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.invitation .form-field .control-label.filled {
+  top: -24px;
+}
+
+.invitation .form-field .remove_field {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border-left: 1px solid black;
+  padding: 0 10px;
+}
+
+.invitation .switch-field {
+  position: relative;
+  height: 50px;
+}
+
+.invitation .switch-field .switch {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: 50px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.invitation .switch-field .switch label {
+  cursor: pointer;
+  position: absolute;
+  width: calc(50% - 15px);
+  line-height: 50px;
+  transition: all 0.2s ease;
+  color: black;
+  border: 1px solid black;
+  border-radius: 0;
+  font-weight: 700;
+}
+
+.invitation .switch-field .switch span {
+  display: none;
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  top: 50%;
+  left: 50%;
+  transform: rotate(-45deg);
+  transition: all 0.2s ease;
+}
+
+.invitation .switch-field .switch span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 4px;
+  transition: all 0.2s ease;
+}
+
+.invitation .switch-field input[type="radio"] {
+  display: none;
+}
+
+.invitation .switch-field label[for="yes"] {
+  left: 0px;
+}
+
+.invitation .switch-field label[for="no"] {
+  right: 0px;
+}
+
+.invitation .switch-field #yes:checked ~ .switch label[for="yes"] {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.invitation .switch-field #yes:checked ~ .switch span {
+  background: var(--success);
+  margin: -2px 0px 0px -4px;
+  transform: rotate(-45deg);
+}
+
+.invitation .switch-field #yes:checked ~ .switch span::after {
+  background: var(--success);
+  margin-top: -8px;
+  width: 4px;
+  height: 12px;
+}
+
+.invitation .switch-field #no:checked ~ .switch label[for="no"] {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.invitation .switch-field #no:checked ~ .switch span {
+  background: var(--danger);
+  margin-left: -8px;
+}
+
+.invitation .switch-field #no:checked ~ .switch span::after {
+  background: var(--danger);
+  height: 20px;
+  margin-top: -8px;
+  margin-left: 8px;
+}

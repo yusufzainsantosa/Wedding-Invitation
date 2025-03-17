@@ -1,0 +1,61 @@
+/* Counter */
+.counter {
+  text-align: center;
+  background-image: url("https://html.fairytheme.net/belle/images/counter-bg.jpg");
+  height: auto;
+}
+
+.counter-value {
+  font-size: 50px;
+  line-height: 1;
+  color: white;
+  font-weight: 100;
+  display: block;
+}
+
+.counter-label {
+  margin-bottom: 0;
+  text-transform: lowercase;
+  color: white;
+  font-family: var(--heading-font);
+  font-size: 30px;
+}
+
+@media (min-width: 768px) {
+  .counter .row {
+    margin-bottom: -40px;
+  }
+}
+
+.counter .feature-center {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+  width: 100%;
+  opacity: 0;
+}
+
+@media (min-width: 1024px) {
+  .counter .feature-center {
+    margin-bottom: 0;
+  }
+}
+
+.counter .icon {
+  width: 90px;
+  height: 90px;
+  border: 2px solid var(--brand-lighter);
+  display: table;
+  text-align: center;
+  margin: 0 auto 30px auto;
+  box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
+  border-radius: 50%;
+}
+
+.counter .icon i {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 40px;
+  line-height: 40px;
+  color: var(--primary);
+}

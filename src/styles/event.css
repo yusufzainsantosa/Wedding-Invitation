@@ -1,0 +1,67 @@
+/* Events */
+.events-accordion h3 {
+  font-size: 20px;
+}
+
+.events-accordion .accordion-img {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .events-accordion .accordion-img {
+    margin-bottom: 0;
+    max-height: inherit;
+  }
+}
+
+@media (min-width: 1024px) {
+  .events-accordion .accordion-img {
+    max-height: 485px;
+  }
+}
+
+.events-accordion .panel-heading {
+  padding: 10px 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: var(--brand-lighter);
+}
+
+.events-accordion .panel-heading + .panel-collapse > .panel-body {
+  padding: 0 15px 5px;
+}
+
+.events-accordion .panel + .panel {
+  margin-top: 5px;
+}
+
+.events-accordion .panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: inherit;
+}
+
+.events-accordion .panel-title > a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: var(--brand-dark2);
+}
+
+.events-accordion .panel-title > a:hover,
+.events-accordion .panel-title > a[aria-expanded="true"] {
+  color: black;
+  font-weight: 600;
+}
+
+.events-accordion .panel-default {
+  box-shadow: none;
+}
+
+.events-accordion .panel-place {
+  padding: 5px 15px 0;
+}
