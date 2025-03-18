@@ -1,3 +1,6 @@
+// Import Bootstrap JavaScript (optional, if you need Bootstrap's JS features)
+import * as bootstrap from "bootstrap";
+
 import "../styles/styles.scss";
 
 console.log("Wedding Invitation Script Loaded!");
@@ -17,6 +20,12 @@ console.log("Wedding Invitation Script Loaded!");
           .fadeTo("slow", 1, function () {
             // Recalculate parallax after fading in
             $(window).trigger("resize");
+
+            const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+              target: "#navbar",
+              offset: 70, // Adjust based on navbar height
+            });
+            scrollSpy.refresh();
           });
       });
 
