@@ -9,7 +9,17 @@ console.log("Wedding Invitation Script Loaded!");
   // 1. PAGE LOADER
   // ============================
   $(window).on("load", function () {
-    $(".loader").delay(600).fadeOut("slow");
+    $(".loader")
+      .delay(600)
+      .fadeOut("slow", function () {
+        $(".main")
+          .css({ visibility: "visible" })
+          .fadeTo("slow", 1, function () {
+            // Recalculate parallax after fading in
+            $(window).trigger("resize");
+          });
+      });
+
     setTimeout(function () {
       $(".cover .display-tc").addClass("fade-in-up");
     }, 800);
@@ -113,6 +123,7 @@ console.log("Wedding Invitation Script Loaded!");
       items: 1,
       loop: true,
       margin: 0,
+      responsiveClass: true,
       nav: false,
       dots: true,
       smartSpeed: 800,

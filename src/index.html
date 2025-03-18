@@ -44,42 +44,13 @@
     data-bs-target="#navbar"
     data-bs-root-margin="0px 0px -40%"
     data-bs-smooth-scroll="true"
-    style=""
-    data-new-gr-c-s-check-loaded="14.1226.0"
-    data-gr-ext-installed=""
   >
-    <div
-      class="parallax-mirror"
-      style="
-        z-index: -100;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        overflow: hidden;
-        transform: translate3d(0px, -944px, 0px);
-        visibility: hidden;
-        height: 949px;
-        width: 1070px;
-      "
-    >
-      <img
-        class="parallax-slider"
-        src="https://html.fairytheme.net/belle/images/header-bg.jpg"
-        style="
-          transform: translate3d(-513px, 755.2px, 0px);
-          position: absolute;
-          height: 949px;
-          width: 2096px;
-          max-width: none;
-        "
-      />
-    </div>
-    <div class="loader" style="display: none"></div>
+    <div class="loader"></div>
 
-    <div class="main">
+    <div class="main" style="opacity: 0; visibility: hidden">
       <!-- Navigation -->
 
-      <nav id="navbar" class="navbar navbar-expand-md fixed-top">
+      <nav id="navbar" class="navbar navbar-expand-md">
         <div class="container">
           <a class="navbar-brand" href="index.html">Belle</a>
 
@@ -113,7 +84,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="#header"
+                  <a class="nav-link active" aria-current="page" href="#header"
                     >Home</a
                   >
                 </li>
@@ -123,7 +94,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link active" href="#couple-story">Story</a>
+                  <a class="nav-link" href="#couple-story">Story</a>
                 </li>
 
                 <li class="nav-item">
@@ -134,7 +105,7 @@
                   <a class="nav-link" href="#invitation">Contact</a>
                 </li>
 
-                <!-- <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                   <a
                     class="nav-link"
                     href="#"
@@ -182,7 +153,7 @@
                       >
                     </li>
                   </ul>
-                </li> -->
+                </li>
               </ul>
             </div>
           </div>
@@ -203,7 +174,7 @@
           <div class="row">
             <div class="col-12 text-center">
               <div class="display-t">
-                <div class="display-tc animation fade-in-up">
+                <div class="display-tc animation">
                   <h1>Save the date</h1>
 
                   <div class="banner-text d-flex justify-content-center">
@@ -321,10 +292,7 @@
                 <div class="timer-item_digits">
                   <div class="timer-item">
                     <div>
-                      <span class="days digit"
-                        ><span>-</span><span>4</span><span>7</span
-                        ><span>5</span></span
-                      >
+                      <span class="days digit"></span>
 
                       <div class="smalltext">days</div>
                     </div>
@@ -332,9 +300,7 @@
 
                   <div class="timer-item">
                     <div>
-                      <span class="hours digit"
-                        ><span>1</span><span>3</span></span
-                      >
+                      <span class="hours digit"></span>
 
                       <div class="smalltext">hours</div>
                     </div>
@@ -342,9 +308,7 @@
 
                   <div class="timer-item">
                     <div>
-                      <span class="minutes digit"
-                        ><span>3</span><span>5</span></span
-                      >
+                      <span class="minutes digit"></span>
 
                       <div class="smalltext">minutes</div>
                     </div>
@@ -352,9 +316,7 @@
 
                   <div class="timer-item">
                     <div>
-                      <span class="seconds digit"
-                        ><span>-</span><span>1</span></span
-                      >
+                      <span class="seconds digit"></span>
 
                       <div class="smalltext">seconds</div>
                     </div>
@@ -633,9 +595,7 @@
           <div class="row">
             <div class="col-12">
               <ul class="timeline">
-                <li
-                  class="timeline-item animate-box animation"
-                >
+                <li class="timeline-item animate-box animation">
                   <div class="timeline-badge">
                     <img
                       src="https://html.fairytheme.net/belle/images/story-1.jpg"
@@ -664,9 +624,7 @@
                   </div>
                 </li>
 
-                <li
-                  class="timeline-item animate-box animation"
-                >
+                <li class="timeline-item animate-box animation">
                   <div class="timeline-badge">
                     <img
                       src="https://html.fairytheme.net/belle/images/story-2.jpg"
@@ -695,9 +653,7 @@
                   </div>
                 </li>
 
-                <li
-                  class="timeline-item animate-box animation"
-                >
+                <li class="timeline-item animate-box animation">
                   <div class="timeline-badge">
                     <img
                       src="https://html.fairytheme.net/belle/images/story-3.jpg"
@@ -765,17 +721,14 @@
                 <button class="button" data-filter=".party">party</button>
               </div>
 
-              <div
-                class="grid grid--margin"
-                style="position: relative; height: 503.39px"
-              >
+              <div class="grid grid--margin">
                 <div class="grid-sizer"></div>
 
-                <div
-                  class="grid-item grid-item--width moments friends"
-                  style="position: absolute; left: 0%; top: 0px"
-                >
-                  <a href="images/gallery-1.jpg" data-lightbox="roadtrip">
+                <div class="grid-item grid-item--width moments friends">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-1.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-1.jpg"
                       alt="gallery"
@@ -783,11 +736,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item moments banguet party"
-                  style="position: absolute; left: 25%; top: 0px"
-                >
-                  <a href="images/gallery-2.jpg" data-lightbox="roadtrip">
+                <div class="grid-item moments banguet party">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-2.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-2.jpg"
                       alt="gallery"
@@ -795,11 +748,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item friends moments party"
-                  style="position: absolute; left: 50%; top: 0px"
-                >
-                  <a href="images/gallery-3.jpg" data-lightbox="roadtrip">
+                <div class="grid-item friends moments party">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-3.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-3.jpg"
                       alt="gallery"
@@ -807,11 +760,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item banguet family"
-                  style="position: absolute; left: 75%; top: 0px"
-                >
-                  <a href="images/gallery-4.jpg" data-lightbox="roadtrip">
+                <div class="grid-item banguet family">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-4.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-4.jpg"
                       alt="gallery"
@@ -819,11 +772,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item friends family"
-                  style="position: absolute; left: 0%; top: 162.656px"
-                >
-                  <a href="images/gallery-5.jpg" data-lightbox="roadtrip">
+                <div class="grid-item friends family">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-5.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-5.jpg"
                       alt="gallery"
@@ -831,11 +784,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item family party"
-                  style="position: absolute; left: 25%; top: 162.656px"
-                >
-                  <a href="images/gallery-10.jpg" data-lightbox="roadtrip">
+                <div class="grid-item family party">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-10.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-10.jpg"
                       alt="gallery"
@@ -843,11 +796,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item moments family"
-                  style="position: absolute; left: 50%; top: 162.656px"
-                >
-                  <a href="images/gallery-7.jpg" data-lightbox="roadtrip">
+                <div class="grid-item moments family">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-7.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-7.jpg"
                       alt="gallery"
@@ -855,11 +808,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item banguet family"
-                  style="position: absolute; left: 75%; top: 162.656px"
-                >
-                  <a href="images/gallery-8.jpg" data-lightbox="roadtrip">
+                <div class="grid-item banguet family">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-8.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-8.jpg"
                       alt="gallery"
@@ -867,11 +820,11 @@
                   </a>
                 </div>
 
-                <div
-                  class="grid-item friends party"
-                  style="position: absolute; left: 50%; top: 325.218px"
-                >
-                  <a href="images/gallery-9.jpg" data-lightbox="roadtrip">
+                <div class="grid-item friends party">
+                  <a
+                    href="https://html.fairytheme.net/belle/images/gallery-9.jpg"
+                    data-lightbox="roadtrip"
+                  >
                     <img
                       src="https://html.fairytheme.net/belle/images/gallery-9.jpg"
                       alt="gallery"
@@ -907,7 +860,7 @@
                   data-to="120"
                   data-speed="5000"
                   data-refresh-interval="50"
-                  >120</span
+                  >1</span
                 >
 
                 <span class="counter-label">Guest</span>
@@ -922,7 +875,7 @@
                   data-to="1000"
                   data-speed="5000"
                   data-refresh-interval="50"
-                  >1000</span
+                  >1</span
                 >
 
                 <span class="counter-label">Kisses</span>
@@ -937,7 +890,7 @@
                   data-to="200"
                   data-speed="5000"
                   data-refresh-interval="50"
-                  >200</span
+                  >1</span
                 >
 
                 <span class="counter-label">Sleepless nights</span>
@@ -952,7 +905,7 @@
                   data-to="1250"
                   data-speed="5000"
                   data-refresh-interval="50"
-                  >1250</span
+                  >1</span
                 >
 
                 <span class="counter-label">Days together</span>
@@ -985,97 +938,69 @@
               <div class="col-12">
                 <div class="wrap-testimony">
                   <div
-                    class="owl-carousel-fullwidth owl-carousel owl-theme owl-loaded owl-responsive--1"
+                    class="owl-carousel-fullwidth owl-carousel owl-theme owl-responsive--1"
                   >
-                    <div
-                      class="owl-stage-outer owl-height"
-                      style="height: 327px"
-                    >
-                      <div
-                        class="owl-stage"
-                        style="
-                          width: 6384px;
-                          transform: translate3d(-1824px, 0px, 0px);
-                          transition: all;
-                        "
-                      >
-                        <div
-                          class="owl-item active"
-                          style="width: 912px; margin-right: 0px"
-                        >
-                          <div class="item">
-                            <div class="testimony-slide active text-center">
-                              <figure>
-                                <img
-                                  src="https://html.fairytheme.net/belle/images/friend-1.jpg"
-                                  alt="user"
-                                />
-                              </figure>
+                    <div class="item">
+                      <div class="testimony-slide active text-center">
+                        <figure>
+                          <img
+                            src="https://html.fairytheme.net/belle/images/friend-1.jpg"
+                            alt="user"
+                          />
+                        </figure>
 
-                              <span>Andrew Brewer</span>
+                        <span>Andrew Brewer</span>
 
-                              <blockquote>
-                                <p>
-                                  "With warm congratulations to a very special
-                                  pair. May you always find in each other the
-                                  love, laughter and happiness that only
-                                  partners in life share!"
-                                </p>
-                              </blockquote>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="owl-item"
-                          style="width: 912px; margin-right: 0px"
-                        >
-                          <div class="item">
-                            <div class="testimony-slide active text-center">
-                              <figure>
-                                <img
-                                  src="https://html.fairytheme.net/belle/images/friend-2.jpg"
-                                  alt="user"
-                                />
-                              </figure>
+                        <blockquote>
+                          <p>
+                            "With warm congratulations to a very special pair.
+                            May you always find in each other the love, laughter
+                            and happiness that only partners in life share!"
+                          </p>
+                        </blockquote>
+                      </div>
+                    </div>
 
-                              <span>Theodore Hamilton</span>
+                    <div class="item">
+                      <div class="testimony-slide active text-center">
+                        <figure>
+                          <img
+                            src="https://html.fairytheme.net/belle/images/friend-2.jpg"
+                            alt="user"
+                          />
+                        </figure>
 
-                              <blockquote>
-                                <p>
-                                  "True love stories never end! Happy wedding
-                                  day and may there be many more chapters in the
-                                  wonderful story of your love for one another."
-                                </p>
-                              </blockquote>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="owl-item"
-                          style="width: 912px; margin-right: 0px"
-                        >
-                          <div class="item">
-                            <div class="testimony-slide active text-center">
-                              <figure>
-                                <img
-                                  src="https://html.fairytheme.net/belle/images/friend-3.jpg"
-                                  alt="user"
-                                />
-                              </figure>
+                        <span>Theodore Hamilton</span>
 
-                              <span>Maria J. Taylor</span>
+                        <blockquote>
+                          <p>
+                            "True love stories never end! Happy wedding day and
+                            may there be many more chapters in the wonderful
+                            story of your love for one another."
+                          </p>
+                        </blockquote>
+                      </div>
+                    </div>
 
-                              <blockquote>
-                                <p>
-                                  "A wedding wish for two special person: love
-                                  is best when shared by two. You know that
-                                  together you are stronger, together you are
-                                  one. Have a wonderful married life!"
-                                </p>
-                              </blockquote>
-                            </div>
-                          </div>
-                        </div>
+                    <div class="item">
+                      <div class="testimony-slide active text-center">
+                        <figure>
+                          <img
+                            src="https://html.fairytheme.net/belle/images/friend-3.jpg"
+                            alt="user"
+                          />
+                        </figure>
+
+                        <span>Maria J. Taylor</span>
+
+                        <blockquote>
+                          <p>
+                            "A wedding wish for two special person: love is best
+                            when shared by two. You know that together you are
+                            stronger, together you are one. Have a wonderful
+                            married life!"
+                          </p>
+                        </blockquote>
                       </div>
                     </div>
                   </div>
@@ -1138,7 +1063,7 @@
                         class="form-control"
                         id="form-name"
                         name="form-name"
-                        required=""
+                        required
                       />
 
                       <label for="form-name" class="control-label"
@@ -1152,7 +1077,7 @@
                         class="form-control"
                         id="form-email"
                         name="form-email"
-                        required=""
+                        required
                       />
 
                       <label for="form-email" class="control-label"
@@ -1239,7 +1164,7 @@
                           title="YouTube video player"
                           frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowfullscreen=""
+                          allowfullscreen
                         ></iframe>
                       </div>
                     </div>
@@ -1261,7 +1186,7 @@
             <div class="col-12 text-center">
               <h2>Just married</h2>
 
-              <p class="text-white">Yusuf and Latifah.</p>
+              <p class="text-white">Joseph and Anna.</p>
             </div>
           </div>
 
@@ -1269,7 +1194,7 @@
             <div class="col-12 text-center">
               <p class="text-white">
                 <small class="block"
-                  >© 2022 Wedding. All Rights Reserved.</small
+                  >&copy; 2022 Wedding. All Rights Reserved.</small
                 >
 
                 <small class="block">
@@ -1321,14 +1246,13 @@
     <!-- Bootstrap Bundle JS (includes Popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Parallax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.5.0/parallax.min.js"></script>
     <!-- imagesLoaded -->
     <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
     <!-- CountTo -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.1.0/jquery.countTo.min.js"></script>
     <!-- Isotope & Masonry CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
     <!-- Waypoint -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <!-- Owl Carousel JS -->
