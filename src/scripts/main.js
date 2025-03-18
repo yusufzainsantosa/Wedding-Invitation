@@ -1,15 +1,4 @@
-import "../styles/root.css";
-import "../styles/base.css";
-import "../styles/navbar.css";
-import "../styles/banner.css";
-import "../styles/about-us.css";
-import "../styles/countdown.css";
-import "../styles/event.css";
-import "../styles/timeline.css";
-import "../styles/gallery.css";
-import "../styles/counter.css";
-import "../styles/testimonials.css";
-import "../styles/invitation.css";
+import "../styles/styles.scss";
 
 console.log("Wedding Invitation Script Loaded!");
 

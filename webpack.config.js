@@ -1,43 +1,38 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/scripts/main.js',
+  entry: "./src/scripts/main.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.scss$/, // Match SCSS files
+        use: [
+          "style-loader", // Injects styles into the DOM
+          "css-loader", // Translates CSS into CommonJS
+          "sass-loader", // Compiles SCSS to CSS
+        ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-            },
-          },
-        ],
+        test: /\.(png|jpe?g|gif|svg)$/i, // Match image files
+        type: "asset/resource", // Use Webpack 5's built-in asset handling
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: "./src/index.html",
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'), // Replace `contentBase` with `static.directory`
+      directory: path.join(__dirname, "dist"),
     },
-    compress: true, // Enable gzip compression
-    port: 9000, // Port to run the dev server on
-    hot: true, // Enable Hot Module Replacement (HMR)
-    open: true, // Open the browser automatically
+    compress: true,
+    port: 9000,
   },
 };
