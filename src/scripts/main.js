@@ -144,6 +144,15 @@ console.log("Wedding Invitation Script Loaded!");
   // 7. FORM HANDLING
   // ============================
   function setupFormHandling() {
+    $(".form-control").on("focus blur", function (event) {
+      if ($(event.target).val() === "") {
+        if (event.type === "focus") {
+          $(event.target).next(".control-label").addClass("filled");
+        } else if (event.type === "blur") {
+          $(event.target).next(".control-label").removeClass("filled");
+        }
+      }
+    });
     $("#contact-form").on("submit", function (event) {
       event.preventDefault();
 
