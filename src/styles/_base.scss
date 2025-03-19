@@ -44,7 +44,7 @@ body {
   clear: both;
 
   @include media-breakpoint-up(md) {
-    padding: 7em 0;
+    padding: 3em 0;
   }
 
   &-sm {
