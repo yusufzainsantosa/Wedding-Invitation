@@ -5,12 +5,9 @@ import "../styles/styles.scss";
 
 console.log("Wedding Invitation Script Loaded!");
 
-(function () {
+!(function () {
   "use strict";
 
-  // ============================
-  // 1. PAGE LOADER
-  // ============================
   $(window).on("load", function () {
     $(".loader")
       .delay(600)
@@ -34,74 +31,113 @@ console.log("Wedding Invitation Script Loaded!");
     }, 800);
   });
 
-  // ============================
-  // 2. FIXED NAVBAR ON SCROLL
-  // ============================
-  $(document).ready(function () {
-    const navbar = $("#navbar");
-    const offcanvasNav = new bootstrap.Offcanvas("#offcanvasNavbar");
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.getElementById("navbar");
+    const offcanvasNavbar = new bootstrap.Offcanvas("#offcanvasNavbar");
 
-    $(window).on("scroll", function () {
-      if ($(window).scrollTop() > 100) {
-        navbar.addClass("fixed-top");
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 100) {
+        navbar.classList.add("fixed-top");
       } else {
-        navbar.removeClass("fixed-top");
+        navbar.classList.remove("fixed-top");
       }
     });
 
-    navbar.on("click", ".nav-link", function () {
-      offcanvasNav.hide();
+    navbar.addEventListener("click", function (event) {
+      if (event.target.classList.contains("nav-link")) {
+        console.log(event.target);
+        offcanvasNavbar.hide();
+      }
     });
   });
 
-  // ============================
-  // 3. COUNTER ANIMATION
-  // ============================
-  function animateCounter() {
+  var counterFunction = function () {
     $(".js-counter").countTo({
       formatter: function (value, options) {
         return value.toFixed(options.decimals);
       },
     });
-  }
+  };
 
-  // ============================
-  // 4. COUNTDOWN TIMER
-  // ============================
-  function startCountdown(id, targetDate) {
-    const container = $("#" + id);
-    if (!container.length) return;
+  var countdownFunction = function () {
+    if (document.querySelector(".countdown")) {
+      function initializeCountdown(elementId, endDate) {
+        var countdownElement = document.getElementById(elementId);
+        var daysElement = countdownElement.querySelector(".days");
+        var hoursElement = countdownElement.querySelector(".hours");
+        var minutesElement = countdownElement.querySelector(".minutes");
+        var secondsElement = countdownElement.querySelector(".seconds");
 
-    function updateCountdown() {
-      const timeLeft = getTimeRemaining(targetDate);
+        function updateCountdown() {
+          var timeRemaining = calculateTimeRemaining(endDate);
+          var days = String(timeRemaining.days).split("");
+          var hours = String(("0" + timeRemaining.hours).slice(-2)).split("");
+          var minutes = String(("0" + timeRemaining.minutes).slice(-2)).split(
+            ""
+          );
+          var seconds = String(("0" + timeRemaining.seconds).slice(-2)).split(
+            ""
+          );
 
-      container.find(".days").text(timeLeft.days);
-      container.find(".hours").text(("0" + timeLeft.hours).slice(-2));
-      container.find(".minutes").text(("0" + timeLeft.minutes).slice(-2));
-      container.find(".seconds").text(("0" + timeLeft.seconds).slice(-2));
+          daysElement.innerHTML = "";
+          hoursElement.innerHTML = "";
+          minutesElement.innerHTML = "";
+          secondsElement.innerHTML = "";
 
-      if (timeLeft.total <= 0) clearInterval(timerInterval);
+          days.forEach(function (day) {
+            var span = document.createElement("span");
+            span.innerHTML = day;
+            daysElement.appendChild(span);
+          });
+
+          hours.forEach(function (hour) {
+            var span = document.createElement("span");
+            span.innerHTML = hour;
+            hoursElement.appendChild(span);
+          });
+
+          minutes.forEach(function (minute) {
+            var span = document.createElement("span");
+            span.innerHTML = minute;
+            minutesElement.appendChild(span);
+          });
+
+          seconds.forEach(function (second) {
+            var span = document.createElement("span");
+            span.innerHTML = second;
+            secondsElement.appendChild(span);
+          });
+
+          if (timeRemaining.total <= 0) {
+            clearInterval(interval);
+          }
+        }
+
+        function calculateTimeRemaining(endDate) {
+          var total = Date.parse(endDate) - Date.parse(new Date());
+          var seconds = Math.floor((total / 1000) % 60);
+          var minutes = Math.floor((total / 1000 / 60) % 60);
+          var hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+          var days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+          return {
+            total: total,
+            days: days,
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds,
+          };
+        }
+
+        updateCountdown();
+        var interval = setInterval(updateCountdown, 1000);
+      }
+
+      initializeCountdown("timer", "May 11 2025 08:00:00 GMT+0700");
     }
+  };
 
-    function getTimeRemaining(endtime) {
-      const total = Date.parse(endtime) - Date.parse(new Date());
-      return {
-        total,
-        days: Math.floor(total / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((total / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((total / 1000 / 60) % 60),
-        seconds: Math.floor((total / 1000) % 60),
-      };
-    }
-
-    updateCountdown();
-    var timerInterval = setInterval(updateCountdown, 1000);
-  }
-
-  // ============================
-  // 5. ANIMATIONS ON SCROLL
-  // ============================
-  function animateOnScroll() {
+  $(function () {
     $(".animate-box").waypoint(
       function (direction) {
         if (
@@ -109,25 +145,35 @@ console.log("Wedding Invitation Script Loaded!");
           !$(this.element).hasClass("animated-fast")
         ) {
           $(this.element).addClass("item-animate");
-
           setTimeout(function () {
-            $(".animate-box.item-animate").each(function (index) {
-              let effect = $(this).data("animate-effect") || "fade-in-up";
-              $(this)
-                .addClass(effect + " animated-fast")
-                .removeClass("item-animate");
+            $("body .animate-box.item-animate").each(function (index) {
+              var element = $(this);
+              setTimeout(
+                function () {
+                  var effect = element.data("animate-effect");
+                  if (effect === "fade-in") {
+                    element.addClass("fade-in animated-fast");
+                  } else if (effect === "fade-in-left") {
+                    element.addClass("fade-in-left animated-fast");
+                  } else if (effect === "fade-in-right") {
+                    element.addClass("fade-in-right animated-fast");
+                  } else {
+                    element.addClass("fade-in-up animated-fast");
+                  }
+                  element.removeClass("item-animate");
+                },
+                200 * index,
+                "easeInOutExpo"
+              );
             });
           }, 100);
         }
       },
-      { offset: "85%" }
+      {
+        offset: "85%",
+      }
     );
-  }
 
-  // ============================
-  // 6. OWL CAROUSEL SETUP
-  // ============================
-  function setupOwlCarousel() {
     $(".owl-carousel-fullwidth").owlCarousel({
       items: 1,
       loop: true,
@@ -138,12 +184,95 @@ console.log("Wedding Invitation Script Loaded!");
       smartSpeed: 800,
       autoHeight: true,
     });
-  }
 
-  // ============================
-  // 7. FORM HANDLING
-  // ============================
-  function setupFormHandling() {
+    counterFunction();
+
+    if ($("#counter").length > 0) {
+      $("#counter").waypoint(
+        function (direction) {
+          if (direction === "down" && !$(this.element).hasClass("animated")) {
+            setTimeout(counterFunction, 400);
+            $(this.element).addClass("animated");
+          }
+        },
+        {
+          offset: "90%",
+        }
+      );
+    }
+
+    countdownFunction();
+
+    var addButton = $(".add-button");
+    var guestNameInput = $("#form-guest-name");
+    var guestList = $(".guest-list");
+
+    addButton.on("click", function (event) {
+      event.preventDefault();
+      var guestName = guestNameInput.val();
+      var guestEntry =
+        '<div><input class="form-control" type="text" value="' +
+        guestName +
+        '"/><a href="#" class="remove_field"><i class="fa fa-trash"></i></a></div>';
+      if (guestName === "") {
+        guestNameInput.focus();
+      } else {
+        guestList.append(guestEntry);
+        guestNameInput.val("");
+      }
+    });
+
+    $(".guest-list").on("click", ".remove_field", function (event) {
+      event.preventDefault();
+      $(this).parent("div").remove();
+    });
+
+    var grid = $(".grid");
+    grid.imagesLoaded(function () {
+      grid.isotope({
+        itemSelector: ".grid-item",
+        percentPosition: true,
+        masonry: {
+          columnWidth: ".grid-sizer",
+        },
+        getSortData: {
+          moments: ".moments",
+          category: "[data-category]",
+          weight: function (element) {
+            var weight = $(element).find(".weight").text();
+            return parseFloat(weight.replace(/[\(\)]/g, ""));
+          },
+        },
+      });
+    });
+
+    var filters = {
+      numberGreaterThan50: function () {
+        var number = $(this).find(".number").text();
+        return parseInt(number, 10) > 50;
+      },
+      ium: function () {
+        return $(this).find(".name").text().match(/ium$/);
+      },
+    };
+
+    $(".filters-button-group").on("click", "button", function () {
+      var filterValue = $(this).attr("data-filter");
+      filterValue = filters[filterValue] || filterValue;
+      grid.isotope({
+        filter: filterValue,
+      });
+    });
+
+    $(".button-group").each(function (index, group) {
+      var buttonGroup = $(group);
+      buttonGroup.on("click", "button", function () {
+        buttonGroup.find(".is-checked").removeClass("is-checked");
+        $(this).addClass("is-checked");
+      });
+    });
+
+    var contactForm = $("#contact-form");
     $(".form-control").on("focus blur", function (event) {
       if ($(event.target).val() === "") {
         if (event.type === "focus") {
@@ -153,90 +282,50 @@ console.log("Wedding Invitation Script Loaded!");
         }
       }
     });
-    $("#contact-form").on("submit", function (event) {
+
+    contactForm.submit(function (event) {
       event.preventDefault();
 
-      let formData = {
+      $(".form-group").removeClass("has-error");
+      $(".help-block").remove();
+      var guests = [];
+      $(".guest-list input").each(function () {
+        guests.push(this.value);
+      });
+
+      if (!$('.switch-field input[type="radio"]:checked').length) {
+        event.preventDefault(); // Prevent form submission
+        $("#error-message").show(); // Show error message
+      } else {
+        $("#error-message").hide(); // Hide error message
+      }
+
+      var formData = {
         name: $('input[name="form-name"]').val(),
-        email: $('input[name="form-email"]').val(),
-        attending: $('.switch-field input[type="radio"]:checked').attr("id"),
-        guest: $(".guest-list input")
-          .map(function () {
-            return this.value;
-          })
-          .get()
-          .join(", "),
+        congratulations_message: $('input[name="form-congrat-msg"]').val(),
+        attending: $('.switch-field input[type="radio"]:checked').val(),
+        guest: guests,
       };
 
-      $.ajax({
-        type: "POST",
-        url: "form.php",
-        data: formData,
-        dataType: "json",
-      }).done(function (response) {
-        if (response.success) {
-          $("#contact-form").html(
-            '<div class="message-success">' + response.message + "</div>"
-          );
-        } else {
-          if (response.errors.name) {
-            $("#name-field")
-              .addClass("has-error")
-              .find(".col-sm-6")
-              .append(
-                '<span class="help-block">' + response.errors.name + "</span>"
-              );
-          }
-          if (response.errors.email) {
-            $("#email-field")
-              .addClass("has-error")
-              .find(".col-sm-6")
-              .append(
-                '<span class="help-block">' + response.errors.email + "</span>"
-              );
-          }
-        }
-      });
+      // Define the Web App URL
+      const webAppUrl =
+        "https://script.google.com/macros/s/AKfycbyBd7fSXNlp9v9hK9AQL9OGtN1FL_ucd6J7rWHInFITY-87eJrg1PGs_7xj3IqT-cCEog/exec";
+
+      // Send the data to the Google Apps Script
+      fetch(webAppUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => response.text())
+        .then((result) => {
+          console.log("Success:", result);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     });
-  }
-
-  // ============================
-  // 8. IMAGE GRID FILTERING (ISOTOPE)
-  // ============================
-  function setupIsotope() {
-    let grid = $(".grid");
-    if (!grid.length) return;
-
-    grid.imagesLoaded(function () {
-      grid.isotope({
-        itemSelector: ".grid-item",
-        percentPosition: true,
-        masonry: { columnWidth: ".grid-sizer" },
-      });
-    });
-
-    $(".filters-button-group").on("click", "button", function () {
-      let filterValue = $(this).attr("data-filter");
-      grid.isotope({ filter: filterValue });
-    });
-
-    $(".button-group").each(function () {
-      $(this).on("click", "button", function () {
-        $(this).siblings().removeClass("is-checked");
-        $(this).addClass("is-checked");
-      });
-    });
-  }
-
-  // ============================
-  // 9. INITIATE FUNCTIONS ON DOCUMENT READY
-  // ============================
-  $(function () {
-    animateOnScroll();
-    setupOwlCarousel();
-    animateCounter();
-    setupFormHandling();
-    setupIsotope();
-    startCountdown("timer", "May 11 2025 07:00:00 GMT+0700");
   });
 })();

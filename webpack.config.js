@@ -8,6 +8,11 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"), // Now "@/assets" refers to "src/assets"
+    },
+  },
   module: {
     rules: [
       {
@@ -20,7 +25,10 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i, // Match image files
-        type: "asset/resource", // Use Webpack 5's built-in asset handling
+        type: "asset/resource",
+        generator: {
+          filename: "assets/images/[name][ext]",
+        },
       },
     ],
   },
@@ -43,5 +51,6 @@ module.exports = {
     },
     compress: true,
     port: 9000,
+    hot: false,
   },
 };
