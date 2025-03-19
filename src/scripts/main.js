@@ -285,6 +285,7 @@ console.log("Wedding Invitation Script Loaded!");
 
     contactForm.submit(function (event) {
       event.preventDefault();
+      console.log('submit form')
 
       $(".form-group").removeClass("has-error");
       $(".help-block").remove();
@@ -294,7 +295,6 @@ console.log("Wedding Invitation Script Loaded!");
       });
 
       if (!$('.switch-field input[type="radio"]:checked').length) {
-        event.preventDefault(); // Prevent form submission
         $("#error-message").show(); // Show error message
       } else {
         $("#error-message").hide(); // Hide error message
