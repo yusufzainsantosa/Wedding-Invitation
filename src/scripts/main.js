@@ -285,7 +285,7 @@ console.log("Wedding Invitation Script Loaded!");
 
     contactForm.submit(function (event) {
       event.preventDefault();
-      console.log('submit form')
+      console.log("submit form");
 
       $(".form-group").removeClass("has-error");
       $(".help-block").remove();
@@ -296,6 +296,7 @@ console.log("Wedding Invitation Script Loaded!");
 
       if (!$('.switch-field input[type="radio"]:checked').length) {
         $("#error-message").show(); // Show error message
+        return;
       } else {
         $("#error-message").hide(); // Hide error message
 
@@ -321,9 +322,13 @@ console.log("Wedding Invitation Script Loaded!");
           .then((response) => response.text())
           .then((result) => {
             console.log("Success:", result);
+            contactForm[0].reset();
+            $(".guest-list").empty();
+            $(".control-label").removeClass("filled");
           })
           .catch((error) => {
             console.error("Error:", error);
+            alert("An error occurred. Please try again."); // Show error message
           });
       }
     });
