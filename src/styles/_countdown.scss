@@ -5,7 +5,7 @@
   }
 
   .heading {
-    margin-bottom: 8em;
+    margin-bottom: 2em;
 
     h2 {
       font-size: 33px;
@@ -18,6 +18,23 @@
     h2,
     p {
       color: $white;
+    }
+  }
+
+  .save-date {
+    margin-bottom: 2em;
+
+    .btn {
+      background: white;
+      color: black;
+      font-size: 25px;
+      font-family: "Great Vibes", cursive;
+      border-radius: 50px;
+      padding: 10px 20px;
+
+      &:hover {
+        background: rgb(219, 211, 211);
+      }
     }
   }
 }

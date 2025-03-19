@@ -1,0 +1,543 @@
+/*! CSS Used from: https://www.themetechmount.in/html/wedco/css/bootstrap.min.css */
+#couple .about-us.location {
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+  h2,
+  h5 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--bs-heading-color);
+  }
+  h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  @media (min-width: 1200px) {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  ul {
+    padding-left: 2rem;
+  }
+  ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+    text-decoration: underline;
+  }
+  a:hover {
+    --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+  }
+  img {
+    vertical-align: middle;
+  }
+  .list-inline {
+    padding-left: 0;
+    list-style: none;
+  }
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  .container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1320px;
+    }
+  }
+  .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+  }
+  .row > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+  }
+  @media (min-width: 768px) {
+    .col-md-12 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+  @media (min-width: 992px) {
+    .col-lg-4 {
+      flex: 0 0 auto;
+      width: 33.33333333%;
+    }
+  }
+  .clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+  .text-center {
+    text-align: center !important;
+  }
+  /*! CSS Used from: https://www.themetechmount.in/html/wedco/css/font-awesome.css */
+  .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .fa-twitter:before {
+    content: "\f099";
+  }
+  .fa-facebook:before {
+    content: "\f09a";
+  }
+  .fa-linkedin:before {
+    content: "\f0e1";
+  }
+  .fa-flickr:before {
+    content: "\f16e";
+  }
+  /*! CSS Used from: https://www.themetechmount.in/html/wedco/css/shortcodes.css */
+  .ttm-row {
+    padding: 90px 0;
+  }
+  .ttm-row.saving-section {
+    padding: 75px 0;
+  }
+  .ttm-bg {
+    position: relative;
+  }
+  .ttm-bg-layer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .ttm-bg.ttm-bgimage-yes > .ttm-bg-layer {
+    opacity: 0.8;
+  }
+  .ttm-bgcolor-grey.ttm-bg.ttm-bgimage-yes > .ttm-bg-layer {
+    opacity: 0.9;
+  }
+  .bg-img5 {
+    background-image: url(https://www.themetechmount.in/html/wedco/images/bg-image/row-bgimage-05.png);
+    background-size: inherit;
+    background-repeat: repeat;
+    background-position: center;
+  }
+  .featured-title h5 {
+    font-size: 19px;
+    line-height: 28px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+  .container {
+    counter-reset: featuredbox-number;
+  }
+  .featured-imagebox,
+  .featured-imagebox .featured-thumbnail {
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-imagebox {
+    margin: 15px 0;
+  }
+  .featured-imagebox .featured-content .featured-title h5 {
+    font-size: 28px;
+    line-height: 38px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .featured-imagebox .featured-content .category {
+    font-size: 15px;
+    line-height: 22px;
+    display: inline-block;
+  }
+  .featured-imagebox .featured-thumbnail img {
+    width: 100%;
+    transform: scale(1.01);
+    transition: all 700ms ease;
+  }
+  .featured-imagebox:hover .featured-thumbnail img {
+    transform: scale(1.09) rotate(0.9deg);
+  }
+  .featured-imagebox.featured-imagebox-team.style3 {
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.05);
+  }
+  .featured-imagebox.featured-imagebox-team.style3
+    .featured-content
+    .featured-title
+    h5 {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .featured-imagebox.featured-imagebox-team.style3:before,
+  .featured-imagebox.featured-imagebox-team.style3:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    content: "";
+    opacity: 0.35;
+  }
+  .featured-imagebox.featured-imagebox-team.style3:before {
+    transform: rotate(180deg);
+    background: url(https://www.themetechmount.in/html/wedco/images/flower02.png)
+      no-repeat;
+    height: 90px;
+    width: 90px;
+  }
+  .featured-imagebox.featured-imagebox-team.style3:after {
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: -13px;
+    background: url(https://www.themetechmount.in/html/wedco/images/flower03.png)
+      no-repeat;
+    height: 110px;
+    width: 110px;
+  }
+  .featured-imagebox.featured-imagebox-team.style3 .featured-thumbnail {
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .featured-imagebox.featured-imagebox-team.style3 .featured-thumbnail img {
+    border-radius: 50%;
+    width: auto;
+    transform: inherit;
+    transition: inherit;
+    filter: inherit;
+  }
+  .ttm-invitationcard-box {
+    position: relative;
+    padding: 85px 30px 75px;
+  }
+  .ttm-invitationcard-box:before,
+  .ttm-invitationcard-box:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: -10px;
+    display: block;
+    content: "";
+    background: url(https://www.themetechmount.in/html/wedco/images/flowler-img.png)
+      no-repeat;
+    height: 150px;
+    width: 150px;
+  }
+  .ttm-invitationcard-box:after {
+    top: 0;
+    left: auto;
+    right: 0;
+    margin-top: -10px;
+    transform: rotate(180deg);
+  }
+  .ttm-top-heading {
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .ttm-groom-name {
+    margin-bottom: 0;
+  }
+  .ttm-invitation-separator {
+    position: relative;
+    color: #818491 !important;
+    margin-bottom: 5px;
+    font-size: 18px;
+    line-height: 28px;
+
+    i {
+      font-size: 20px;
+      padding: 20px;
+      color: $primary;
+      animation: pulse 1s ease infinite;
+    }
+  }
+  .ttm-invitation-separator:before,
+  .ttm-invitation-separator:after {
+    content: "";
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height: 1px;
+    background-color: #e3e3e3;
+    left: -13px;
+    vertical-align: middle;
+  }
+  .ttm-invitation-separator:after {
+    left: auto;
+    right: -13px;
+  }
+  .ttm-card-date {
+    font-weight: 500;
+  }
+  .ttm-location-place {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .ttm-invitationcard-box .ttm-location-place a:after {
+    content: "";
+    width: 15px;
+    height: 2px;
+    background-color: currentColor;
+    position: absolute;
+    bottom: 90px;
+    left: 48%;
+  }
+  .ttm-invitationcard-box.style1 {
+    padding: 100px 0px 0;
+  }
+  .ttm-invitationcard-box.style1:before {
+    width: unset;
+  }
+  .ttm-invitationcard-box.style1:after {
+    width: unset;
+  }
+  .ttm-invitationcard-box.style1 .ttm-top-heading {
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    color: #c78665;
+    margin-bottom: 5px;
+  }
+  .ttm-invitationcard-box.style1 .ttm-groom-name {
+    font-size: 41px;
+    line-height: 52px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .ttm-invitationcard-box.style1 .ttm-groom-name_1 {
+    font-size: 40px;
+    line-height: 52px;
+  }
+  .ttm-invitationcard-box.style1 .ttm-location-place {
+    font-size: 15px;
+    line-height: 26px;
+    text-transform: uppercase;
+  }
+  .ttm-invitationcard-box.style1 .ttm-invitation-separator {
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .ttm-invitationcard-box.style1 .ttm-card-date {
+    font-weight: 400;
+    margin-top: 17px;
+  }
+  .ttm-invitationcard-box.style1 .ttm-location-place a:after {
+    width: unset;
+  }
+  /*! CSS Used from: https://www.themetechmount.in/html/wedco/css/main.css */
+  section {
+    display: block;
+  }
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    outline: none;
+  }
+  a {
+    outline: none;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    margin: 0 0 15px;
+  }
+  ::selection {
+    background: #c78665;
+    color: #fff;
+    text-shadow: none;
+  }
+  ul {
+    margin: 16px 0;
+    padding: 0 0 0 25px;
+  }
+  h2,
+  h5 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #121f38;
+    font-family: "Cormorant", sans-serif;
+  }
+  h2 {
+    font-size: 52px;
+    line-height: 60px;
+  }
+  h5 {
+    font-size: 26px;
+    line-height: 33px;
+  }
+  .container {
+    max-width: 1330px;
+    padding: 0 15px;
+  }
+  .row:not(.g-0) {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .row:not(.g-0) > [class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  a {
+    color: #121f38;
+  }
+  a,
+  img {
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+  }
+  .ttm-invitationcard-box.style1 .ttm-card-date,
+  a:hover,
+  .social-icons li a:hover {
+    color: #c78665;
+  }
+  .ttm-bgcolor-grey,
+  .ttm-bgcolor-grey > .ttm-bg-layer {
+    background-color: #edf5f7;
+  }
+  .social-icons li a {
+    color: inherit;
+  }
+  ul.social-icons {
+    margin: 0;
+    padding: 0;
+  }
+  .social-icons li {
+    display: inline-block;
+    border: none;
+    z-index: 1;
+    position: relative;
+  }
+  .social-icons li {
+    margin: 0 2px;
+  }
+  .social-icons li:last-child {
+    margin-right: 0px;
+  }
+  .social-icons li a {
+    display: block;
+    min-width: 18px;
+    text-align: center;
+  }
+  /*! CSS Used from: https://www.themetechmount.in/html/wedco/css/responsive.css */
+  @media all and (max-width: 1199px) {
+    .ttm-row .container {
+      max-width: 100%;
+    }
+    .ttm-row .container {
+      padding: 0;
+    }
+    .ttm-row .container > .row {
+      margin: 0;
+    }
+  }
+  @media (max-width: 991px) {
+    .featured-imagebox img {
+      text-align: center;
+      margin: 0 auto;
+    }
+    .featured-imagebox img {
+      min-width: 100%;
+    }
+    h2 {
+      font-size: 36px;
+      line-height: 46px;
+    }
+    h5 {
+      font-size: 19px;
+      line-height: 22px;
+    }
+    .ttm-row {
+      padding: 60px 0;
+    }
+    .ttm-row.saving-section {
+      padding: 45px 0;
+    }
+    .featured-thumbnail img {
+      width: 100%;
+    }
+    .ttm-invitationcard-box {
+      padding: 60px 30px 45px;
+    }
+    .ttm-invitationcard-box.style1 {
+      padding: 30px 0px 0;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .featured-imagebox.featured-imagebox-team.style3 .featured-thumbnail {
+      width: auto;
+    }
+  }
+}

@@ -203,6 +203,20 @@ console.log("Wedding Invitation Script Loaded!");
 
     countdownFunction();
 
+    // Event details
+    const title = encodeURIComponent("Yusuf & Latifah Wedding");
+    const details = encodeURIComponent("Join us for our special day!");
+    const location = encodeURIComponent(
+      "Lemah Ledok Garden Resto, DIY, Indonesia"
+    );
+    const startDate = "20250511T010000Z"; // 08:00 AM GMT+7 → 01:00 AM UTC
+    const endDate = "20250511T060000Z"; // 01:00 PM GMT+7 → 06:00 AM UTC
+
+    // Google Calendar URL
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${startDate}/${endDate}`;
+
+    document.getElementById("saveToGoogle").href = googleCalendarUrl;
+
     var addButton = $(".add-button");
     var guestNameInput = $("#form-guest-name");
     var guestList = $(".guest-list");
