@@ -298,34 +298,34 @@ console.log("Wedding Invitation Script Loaded!");
         $("#error-message").show(); // Show error message
       } else {
         $("#error-message").hide(); // Hide error message
-      }
 
-      var formData = {
-        name: $('input[name="form-name"]').val(),
-        congratulations_message: $('input[name="form-congrat-msg"]').val(),
-        attending: $('.switch-field input[type="radio"]:checked').val(),
-        guest: guests,
-      };
+        var formData = {
+          name: $('input[name="form-name"]').val(),
+          congratulations_message: $('input[name="form-congrat-msg"]').val(),
+          attending: $('.switch-field input[type="radio"]:checked').val(),
+          guest: guests,
+        };
 
-      // Define the Web App URL
-      const webAppUrl =
-        "https://script.google.com/macros/s/AKfycbyBd7fSXNlp9v9hK9AQL9OGtN1FL_ucd6J7rWHInFITY-87eJrg1PGs_7xj3IqT-cCEog/exec";
+        // Define the Web App URL
+        const webAppUrl =
+          "https://script.google.com/macros/s/AKfycbyBd7fSXNlp9v9hK9AQL9OGtN1FL_ucd6J7rWHInFITY-87eJrg1PGs_7xj3IqT-cCEog/exec";
 
-      // Send the data to the Google Apps Script
-      fetch(webAppUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => response.text())
-        .then((result) => {
-          console.log("Success:", result);
+        // Send the data to the Google Apps Script
+        fetch(webAppUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify(formData),
         })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+          .then((response) => response.text())
+          .then((result) => {
+            console.log("Success:", result);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
     });
   });
 })();
