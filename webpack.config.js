@@ -1,9 +1,12 @@
 const path = require("path");
+const glob = require("glob"); // Required for PurgeCSSPlugin
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin"); // Correct import
 
 module.exports = {
   entry: "./src/scripts/main.js",
@@ -23,7 +26,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader, // Extracts CSS into separate files
           "css-loader", // Translates CSS into CommonJS
-          "sass-loader", // Compiles SCSS to CSS
+          "sass-loader", // Compiles Sass/SCSS to CSS
         ],
       },
       {
@@ -40,17 +43,32 @@ module.exports = {
       chunks: "all",
     },
     minimizer: [
+      new TerserPlugin({
+        // Minify JavaScript
+        parallel: true,
+        terserOptions: {
+          compress: true,
+          mangle: true,
+          format: {
+            comments: false,
+          },
+        },
+      }),
       new CssMinimizerPlugin(), // Minifies CSS
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./src/index.html", // Your HTML template
       inject: "body", // Inject scripts at the bottom of the <body>
     }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin(), // Analyzes bundle size
     new MiniCssExtractPlugin({
       filename: "[name].min.css", // Outputs minified CSS files
+    }),
+    new PurgeCSSPlugin({
+      paths: glob.sync(`${path.join(__dirname, "src")}/**/*`, { nodir: true }), // Analyze all files in src
+      safelist: ["nav", "carousel"], // Safelist specific classes
     }),
   ],
   devServer: {
