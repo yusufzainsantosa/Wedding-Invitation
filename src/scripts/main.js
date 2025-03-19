@@ -287,6 +287,10 @@ console.log("Wedding Invitation Script Loaded!");
       event.preventDefault();
       console.log("submit form");
 
+      // Disable the submit button
+      var submitButton = $(this).find('button[type="submit"]');
+      submitButton.prop("disabled", true);
+
       $(".form-group").removeClass("has-error");
       $(".help-block").remove();
       var guests = [];
@@ -296,6 +300,7 @@ console.log("Wedding Invitation Script Loaded!");
 
       if (!$('.switch-field input[type="radio"]:checked').length) {
         $("#error-message").show(); // Show error message
+        submitButton.prop("disabled", false); // Re-enable the submit button
         return;
       } else {
         $("#error-message").hide(); // Hide error message
@@ -329,6 +334,9 @@ console.log("Wedding Invitation Script Loaded!");
           .catch((error) => {
             console.error("Error:", error);
             alert("An error occurred. Please try again."); // Show error message
+          })
+          .finally(() => {
+            submitButton.prop("disabled", false); // Re-enable the submit button
           });
       }
     });
