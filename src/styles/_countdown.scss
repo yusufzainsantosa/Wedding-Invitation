@@ -1,9 +1,19 @@
 /* Countdown */
 .countdown {
   &.section {
-    background-image: url(https://html.fairytheme.net/belle/images/countdown-bg.jpg);
+    background-image: url("~@/assets/images/4.jpg");
   }
-
+  .container {
+    position: relative;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(37 37 37 / 52%);
+  }
   .heading {
     margin-bottom: 2em;
 
@@ -26,6 +36,7 @@
 
     .btn {
       background: white;
+      border-color: transparent;
       color: black;
       font-size: 25px;
       font-family: "Great Vibes", cursive;

@@ -22,43 +22,12 @@
     margin: 10px 0;
   }
 
-  .video {
-    height: 450px;
+  .bg {
+    min-height: 450px;
+    height: 100%;
     overflow: hidden;
     border-radius: 0;
-    background-image: url(https://html.fairytheme.net/belle/images/video-bg.jpg);
-
-    @include media-breakpoint-up(md) {
-      height: 100%;
-    }
-
-    &:hover {
-      .overlay {
-        opacity: 0.5;
-      }
-    }
-
-    a {
-      z-index: 1001;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      display: table;
-      text-align: center;
-      color: rgba($white, 0.5);
-      text-decoration: none;
-
-      i {
-        text-align: center;
-        display: table-cell;
-        vertical-align: middle;
-      }
-    }
-
-    .overlay {
-      transition: all 0.5s ease;
-    }
+    background-image: url("~@/assets/images/10.jpg");
   }
 
   .form-field {

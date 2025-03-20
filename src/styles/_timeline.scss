@@ -32,10 +32,6 @@
     top: 16px;
     z-index: 100;
 
-    img {
-      border-radius: 50%;
-    }
-
     @include media-breakpoint-up(sm) {
       width: 160px;
       height: 160px;
@@ -178,6 +174,8 @@
 
     .timeline-badge {
       @include media-breakpoint-up(lg) {
+        overflow: hidden;
+        border-radius: 50%;
         left: 50%;
         margin-left: -80px;
       }

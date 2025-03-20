@@ -256,14 +256,16 @@
     width: 110px;
   }
   .featured-imagebox.featured-imagebox-team.style3 .featured-thumbnail {
-    max-width: 280px;
-    height: auto;
+    width: 90%;
+    max-width: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 25px;
   }
   .featured-imagebox.featured-imagebox-team.style3 .featured-thumbnail img {
-    border-radius: 50%;
     width: auto;
     transform: inherit;
     transition: inherit;
@@ -310,7 +312,6 @@
 
     i {
       font-size: 20px;
-      padding: 20px;
       color: $primary;
       animation: pulse 1s ease infinite;
     }

@@ -1,5 +1,5 @@
 // Import Bootstrap JavaScript (optional, if you need Bootstrap's JS features)
-import { ScrollSpy } from 'bootstrap';
+import { ScrollSpy, Offcanvas } from 'bootstrap';
 
 import "../styles/styles.scss";
 
@@ -33,7 +33,7 @@ console.log("Wedding Invitation Script Loaded!");
 
   document.addEventListener("DOMContentLoaded", function () {
     const navbar = document.getElementById("navbar");
-    const offcanvasNavbar = new bootstrap.Offcanvas("#offcanvasNavbar");
+    const offcanvasNavbar = new Offcanvas("#offcanvasNavbar");
 
     window.addEventListener("scroll", function () {
       if (window.scrollY > 100) {

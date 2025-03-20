@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+// const BundleAnalyzerPlugin =
+//   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { PurgeCSSPlugin } = require("purgecss-webpack-plugin"); // Correct import
 
 module.exports = {
@@ -36,6 +37,25 @@ module.exports = {
           filename: "assets/images/[name][ext]",
         },
       },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: {
+              sources: {
+                list: [
+                  {
+                    tag: "img",
+                    attribute: "src",
+                    type: "src",
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   optimization: {
@@ -55,6 +75,42 @@ module.exports = {
         },
       }),
       new CssMinimizerPlugin(), // Minifies CSS
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            // Lossless optimization with custom option
+            // Feel free to experiment with options for better result for you
+            plugins: [
+              ["imagemin-mozjpeg", { quality: 70, progressive: true }], // Remove metadata from JPEGs
+              ["imagemin-pngquant", { quality: [0.6, 0.8], strip: true }], // Remove metadata from PNGs
+              ["gifsicle", { interlaced: true }], // Compress GIF images
+              [
+                "svgo",
+                {
+                  plugins: [
+                    {
+                      name: "preset-default",
+                      params: {
+                        overrides: {
+                          removeViewBox: false,
+                          addAttributesToSVGElement: {
+                            params: {
+                              attributes: [
+                                { xmlns: "http://www.w3.org/2000/svg" },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+      }),
     ],
   },
   plugins: [
@@ -62,7 +118,7 @@ module.exports = {
       template: "./src/index.html", // Your HTML template
       inject: "body", // Inject scripts at the bottom of the <body>
     }),
-    new BundleAnalyzerPlugin(), // Analyzes bundle size
+    // new BundleAnalyzerPlugin(), // Analyzes bundle size
     new MiniCssExtractPlugin({
       filename: "[name].min.css", // Outputs minified CSS files
     }),
