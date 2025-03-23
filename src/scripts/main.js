@@ -1,5 +1,5 @@
 // Import Bootstrap JavaScript (optional, if you need Bootstrap's JS features)
-import { ScrollSpy, Offcanvas } from 'bootstrap';
+import { ScrollSpy, Offcanvas } from "bootstrap";
 
 import "../styles/styles.scss";
 
@@ -49,6 +49,20 @@ console.log("Wedding Invitation Script Loaded!");
         offcanvasNavbar.hide();
       }
     });
+
+    const counter = document.querySelector(".days-together");
+
+    // Start date: March 3, 2021
+    const startDate = new Date(2021, 2, 3); // March (0-based index)
+    const currentDate = new Date();
+
+    // Calculate total days
+    const timeDifference = currentDate - startDate;
+    const totalDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    // Set `data-to` dynamically
+    counter.setAttribute("data-to", totalDays);
+    counter.textContent = totalDays; // Directly update the counter
   });
 
   var counterFunction = function () {
@@ -354,5 +368,50 @@ console.log("Wedding Invitation Script Loaded!");
           });
       }
     });
+
+    async function fetchData() {
+      try {
+        const sheetURL =
+          "https://script.google.com/macros/s/AKfycbyBd7fSXNlp9v9hK9AQL9OGtN1FL_ucd6J7rWHInFITY-87eJrg1PGs_7xj3IqT-cCEog/exec";
+        const response = await fetch(sheetURL);
+        const data = await response.json();
+  
+        const $carousel = $(".owl-carousel-fullwidth");
+        $carousel.trigger('destroy.owl.carousel'); // Destroy old carousel instance
+        $carousel.empty(); // Clear old items
+  
+        // Add new items
+        data.forEach(row => {
+          $carousel.append(`
+            <div class="item">
+              <div class="testimony-slide active text-center">
+                <span>${row.Nama}</span>
+                <blockquote>
+                  <p>"${row["Ucapan Selamat"]}"</p>
+                </blockquote>
+              </div>
+            </div>
+          `);
+        });
+  
+        // Reinitialize Owl Carousel
+        $carousel.owlCarousel({
+          items: 1,
+          loop: true,
+          margin: 0,
+          responsiveClass: true,
+          nav: false,
+          dots: true,
+          smartSpeed: 800,
+          autoHeight: true,
+        });
+  
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    // Just call the function directly
+    fetchData();
   });
 })();

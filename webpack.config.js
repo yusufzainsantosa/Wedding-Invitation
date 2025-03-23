@@ -82,7 +82,7 @@ module.exports = {
             // Lossless optimization with custom option
             // Feel free to experiment with options for better result for you
             plugins: [
-              ["imagemin-mozjpeg", { quality: 70, progressive: true }], // Remove metadata from JPEGs
+              ["imagemin-mozjpeg", { quality: 50, progressive: true }], // Remove metadata from JPEGs
               ["imagemin-pngquant", { quality: [0.6, 0.8], strip: true }], // Remove metadata from PNGs
               ["gifsicle", { interlaced: true }], // Compress GIF images
               [
@@ -108,6 +108,24 @@ module.exports = {
                 },
               ],
             ],
+          },
+        },
+      }), // Second instance: Use sharpMinify for modern formats
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.sharpMinify,
+          options: {
+            encodeOptions: {
+              webp: {
+                quality: 20, // Adjust quality (0-100)
+                lossless: false, // Use lossy compression
+                alphaQuality: 100, // Preserve transparency quality
+              },
+              avif: {
+                quality: 20, // Adjust quality (0-100)
+                lossless: false, // Use lossy compression
+              },
+            },
           },
         },
       }),

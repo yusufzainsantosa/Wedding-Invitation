@@ -18,12 +18,12 @@
 
 .banner {
   &_top {
-    background-image: url("@/assets/images/1.jpg");
+    background-image: url("@/assets/images/1.webp");
   }
 
   &_bottom {
     padding: 10em 0 3em;
-    background-image: url("https://html.fairytheme.net/belle/images/banner-bottom.jpg");
+    background-image: url("@/assets/images/gallery9.webp");
 
     h2 {
       margin: 0;
@@ -34,6 +34,19 @@
 
     a {
       color: $white;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Adjust opacity */
+    }
+
+    .container {
+      position: relative;
     }
 
     .heading {
