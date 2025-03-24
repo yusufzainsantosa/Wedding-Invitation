@@ -197,6 +197,9 @@ console.log("Wedding Invitation Script Loaded!");
       dots: true,
       smartSpeed: 800,
       autoHeight: true,
+      autoplay: true, // Enables automatic sliding
+      autoplayTimeout: 2000, // Time between slides (in milliseconds)
+      autoplayHoverPause: true, // Pauses on hover
     });
 
     counterFunction();
@@ -375,13 +378,14 @@ console.log("Wedding Invitation Script Loaded!");
           "https://script.google.com/macros/s/AKfycbyBd7fSXNlp9v9hK9AQL9OGtN1FL_ucd6J7rWHInFITY-87eJrg1PGs_7xj3IqT-cCEog/exec";
         const response = await fetch(sheetURL);
         const data = await response.json();
-  
+        data.reverse();
+
         const $carousel = $(".owl-carousel-fullwidth");
-        $carousel.trigger('destroy.owl.carousel'); // Destroy old carousel instance
+        $carousel.trigger("destroy.owl.carousel"); // Destroy old carousel instance
         $carousel.empty(); // Clear old items
-  
+
         // Add new items
-        data.forEach(row => {
+        data.forEach((row) => {
           $carousel.append(`
             <div class="item">
               <div class="testimony-slide active text-center">
@@ -393,7 +397,7 @@ console.log("Wedding Invitation Script Loaded!");
             </div>
           `);
         });
-  
+
         // Reinitialize Owl Carousel
         $carousel.owlCarousel({
           items: 1,
@@ -404,8 +408,10 @@ console.log("Wedding Invitation Script Loaded!");
           dots: true,
           smartSpeed: 800,
           autoHeight: true,
+          autoplay: true, // Enables automatic sliding
+          autoplayTimeout: 2000, // Time between slides (in milliseconds)
+          autoplayHoverPause: true, // Pauses on hover
         });
-  
       } catch (error) {
         console.error("Error fetching data:", error);
       }
