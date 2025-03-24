@@ -50,6 +50,17 @@ console.log("Wedding Invitation Script Loaded!");
       }
     });
 
+    // Handle gift section display
+    const params = new URLSearchParams(window.location.search);
+    const giftSection = document.getElementById("gift-section");
+
+    // Check if URL contains ?invitation
+    if (params.has("invitation")) {
+      giftSection.style.display = "block"; // Show the section
+    } else {
+      giftSection.style.display = "none"; // Hide the section
+    }
+
     const counter = document.querySelector(".days-together");
 
     // Start date: March 3, 2021
