@@ -22,6 +22,10 @@
     margin: 10px 0;
   }
 
+  input,button {
+    border-radius: 10px;
+  }
+
   .bg {
     min-height: 450px;
     height: 100%;
@@ -80,6 +84,7 @@
         border: 1px solid $black;
         border-radius: 0;
         font-weight: 700;
+        border-radius: 10px;
       }
 
       span {

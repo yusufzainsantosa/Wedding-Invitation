@@ -168,6 +168,8 @@
     }
 
     .timeline-panel {
+      border-radius: 20px;
+
       @include media-breakpoint-up(lg) {
         width: 38%;
         float: left;
