@@ -50,15 +50,33 @@ console.log("Wedding Invitation Script Loaded!");
       }
     });
 
-    // Handle gift section display
+    // Handle different parameter
     const params = new URLSearchParams(window.location.search);
     const giftSection = document.getElementById("gift-section");
 
     // Check if URL contains ?invitation
-    if (params.has("invitation")) {
+    if (
+      params.get("view") == "invitation" ||
+      params.get("view") == "ngunduh-mantu"
+    ) {
       giftSection.style.display = "block"; // Show the section
     } else {
       giftSection.style.display = "none"; // Hide the section
+    }
+
+    if (params.get("view") == "ngunduh-mantu") {
+      document
+        .querySelectorAll(".part-resepsi")
+        .forEach((el) => (el.style.display = "none"));
+      document
+        .querySelectorAll(".part-ngunduh_mantu")
+        .forEach((el) => (el.style.display = "block"));
+      document
+        .querySelector(".about_us-one")
+        .classList.replace("order-1", "order-3");
+      document
+        .querySelector(".about_us-three")
+        .classList.replace("order-3", "order-1");
     }
 
     const counter = document.querySelector(".days-together");
@@ -158,7 +176,12 @@ console.log("Wedding Invitation Script Loaded!");
         var interval = setInterval(updateCountdown, 1000);
       }
 
-      initializeCountdown("timer", "May 11 2025 08:00:00 GMT+0700");
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("view") == "ngunduh-mantu") {
+        initializeCountdown("timer", "May 17 2025 08:00:00 GMT+0700");
+      } else {
+        initializeCountdown("timer", "May 11 2025 08:00:00 GMT+0700");
+      }
     }
   };
 
@@ -330,6 +353,7 @@ console.log("Wedding Invitation Script Loaded!");
       console.log("submit form");
 
       // Disable the submit button
+      const params = new URLSearchParams(window.location.search);
       var submitButton = $(this).find('button[type="submit"]');
       submitButton.prop("disabled", true);
 
@@ -346,12 +370,17 @@ console.log("Wedding Invitation Script Loaded!");
         return;
       } else {
         $("#error-message").hide(); // Hide error message
+        var event = "resepsi";
+        if (params.get("view") == "ngunduh-mantu") {
+          event = "ngunduh mantu";
+        }
 
         var formData = {
           name: $('input[name="form-name"]').val(),
           congratulations_message: $('input[name="form-congrat-msg"]').val(),
           attending: $('.switch-field input[type="radio"]:checked').val(),
           guest: guests,
+          event: event,
         };
 
         // Define the Web App URL
