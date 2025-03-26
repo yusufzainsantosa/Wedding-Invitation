@@ -178,7 +178,7 @@ console.log("Wedding Invitation Script Loaded!");
 
       const params = new URLSearchParams(window.location.search);
       if (params.get("view") == "ngunduh-mantu") {
-        initializeCountdown("timer", "May 17 2025 08:00:00 GMT+0700");
+        initializeCountdown("timer", "May 17 2025 18:00:00 GMT+0700");
       } else {
         initializeCountdown("timer", "May 11 2025 08:00:00 GMT+0700");
       }
@@ -255,13 +255,24 @@ console.log("Wedding Invitation Script Loaded!");
     countdownFunction();
 
     // Event details
-    const title = encodeURIComponent("Yusuf & Latifah Wedding");
-    const details = encodeURIComponent("Join us for our special day!");
-    const location = encodeURIComponent(
+    const params = new URLSearchParams(window.location.search);
+    let title = encodeURIComponent("Latifah & Yusuf Wedding");
+    let details = encodeURIComponent("Join us for our special day!");
+    let location = encodeURIComponent(
       "Lemah Ledok Garden Resto, DIY, Indonesia"
     );
-    const startDate = "20250511T010000Z"; // 08:00 AM GMT+7 → 01:00 AM UTC
-    const endDate = "20250511T060000Z"; // 01:00 PM GMT+7 → 06:00 AM UTC
+    let startDate = "20250511T010000Z"; // 08:00 AM GMT+7 → 01:00 AM UTC
+    let endDate = "20250511T060000Z"; // 01:00 PM GMT+7 → 06:00 AM UTC
+
+    if (params.get("view") == "ngunduh-mantu") {
+      title = encodeURIComponent("Yusuf & Latifah Another Special Day");
+      details = encodeURIComponent("Join us for our special day!");
+      location = encodeURIComponent(
+        "Gedung, Resto & Catering de'LIMA, Surakarta, Indonesia"
+      );
+      startDate = "20250517T110000Z"; // 18:00 PM GMT+7 → 11:00 AM UTC
+      endDate = "20250517T130000Z"; // 20:00 PM GMT+7 → 13:00 PM UTC
+    }
 
     // Google Calendar URL
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${startDate}/${endDate}`;
