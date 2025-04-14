@@ -56,8 +56,8 @@ console.log("Wedding Invitation Script Loaded!");
 
     // Check if URL contains ?invitation
     if (
-      params.get("view") == "invitation" ||
-      params.get("view") == "ngunduh-mantu"
+      (params.get("view") == "invitation" ||
+      params.get("view") == "ngunduh-mantu") && params.get("ver") != "partial"
     ) {
       giftSection.style.display = "block"; // Show the section
     } else {
