@@ -50,11 +50,11 @@ body {
 }
 
 .section {
-  padding: 3em 0;
+  padding: 4.2em 0;
   clear: both;
 
   @include media-breakpoint-up(md) {
-    padding: 3em 0;
+    padding: 4.2em 0;
   }
 
   &-sm {
@@ -149,7 +149,7 @@ body {
   }
 
   .btn {
-    padding: 15px 20px;
+    padding: 8px 20px;
     background: $white !important;
     color: $primary;
     border: none !important;
@@ -157,8 +157,6 @@ body {
     text-transform: uppercase;
     font-family: $font-heading-banner;
     border-radius: 50px;
-    position: absolute;
-    transform: translate(-35%, -40%);
 
     &:hover {
       background: $white !important;

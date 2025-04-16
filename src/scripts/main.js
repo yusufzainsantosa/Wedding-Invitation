@@ -24,20 +24,7 @@ console.log("Wedding Invitation Script Loaded!");
           .fadeTo("slow", 1, function () {
             // Recalculate parallax after fading in
             $(window).trigger("resize");
-
-            scrollSpy = new ScrollSpy(document.body, {
-              target: "#navbar",
-              offset: 70, // Adjust based on navbar height
-            });
-            scrollSpy.refresh();
-
-            const targetSection = document.getElementById("header"); // For example, Section 2
-
-            // Scroll to the target section
-            targetSection.scrollIntoView({
-              behavior: "smooth", // Smooth scroll animation
-              block: "start", // Align to the top of the viewport
-            });
+            window.scrollTo(0, 0);
           });
       });
 
@@ -75,6 +62,14 @@ console.log("Wedding Invitation Script Loaded!");
       // Hide the button
       showButton.style.display = "none";
 
+      $(window).trigger("resize");
+
+      scrollSpy = new ScrollSpy(document.body, {
+        target: "#navbar",
+        offset: 70, // Adjust based on navbar height
+      });
+      scrollSpy.refresh();
+
       // Play background music
       audio.play().catch((err) => {
         console.log("Play failed:", err);
@@ -87,14 +82,6 @@ console.log("Wedding Invitation Script Loaded!");
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
-
-      $(window).trigger("resize");
-
-      scrollSpy = new ScrollSpy(document.body, {
-        target: "#navbar",
-        offset: 70, // Adjust based on navbar height
-      });
-      scrollSpy.refresh();
 
       // Remove listener
       showButton.removeEventListener("click", unlockPageStartMusicAndScroll);
