@@ -8,19 +8,12 @@ const audio = new Audio(bgMusicSrc);
 audio.loop = true;
 audio.autoplay = true;
 
-// Play after interaction
-document.body.addEventListener(
-  "click",
-  () => {
-    audio.play().catch((err) => console.log("Autoplay failed:", err));
-  },
-  { once: true }
-);
-
 console.log("Wedding Invitation Script Loaded!");
 
 !(function () {
   "use strict";
+
+  var scrollSpy;
 
   $(window).on("load", function () {
     $(".loader")
@@ -32,11 +25,19 @@ console.log("Wedding Invitation Script Loaded!");
             // Recalculate parallax after fading in
             $(window).trigger("resize");
 
-            const scrollSpy = new ScrollSpy(document.body, {
+            scrollSpy = new ScrollSpy(document.body, {
               target: "#navbar",
               offset: 70, // Adjust based on navbar height
             });
             scrollSpy.refresh();
+
+            const targetSection = document.getElementById("header"); // For example, Section 2
+
+            // Scroll to the target section
+            targetSection.scrollIntoView({
+              behavior: "smooth", // Smooth scroll animation
+              block: "start", // Align to the top of the viewport
+            });
           });
       });
 
@@ -63,6 +64,43 @@ console.log("Wedding Invitation Script Loaded!");
         offcanvasNavbar.hide();
       }
     });
+
+    // Handle music
+    const showButton = document.getElementById("open-invitation");
+
+    function unlockPageStartMusicAndScroll() {
+      // Enable scrolling
+      document.body.classList.remove("lock-scroll");
+
+      // Hide the button
+      showButton.style.display = "none";
+
+      // Play background music
+      audio.play().catch((err) => {
+        console.log("Play failed:", err);
+      });
+
+      // Scroll to target section
+      const targetSelector = showButton.dataset.target;
+      const targetElement = document.querySelector(targetSelector);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+
+      $(window).trigger("resize");
+
+      scrollSpy = new ScrollSpy(document.body, {
+        target: "#navbar",
+        offset: 70, // Adjust based on navbar height
+      });
+      scrollSpy.refresh();
+
+      // Remove listener
+      showButton.removeEventListener("click", unlockPageStartMusicAndScroll);
+    }
+
+    showButton.addEventListener("click", unlockPageStartMusicAndScroll);
 
     // Handle different parameter
     const params = new URLSearchParams(window.location.search);
