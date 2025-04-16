@@ -38,6 +38,13 @@ module.exports = {
         },
       },
       {
+        test: /\.(mp3|wav)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/music/[name][ext]", // Keep folder structure
+        },
+      },
+      {
         test: /\.html$/,
         use: [
           {

@@ -1,7 +1,21 @@
 // Import Bootstrap JavaScript (optional, if you need Bootstrap's JS features)
 import { ScrollSpy, Offcanvas } from "bootstrap";
+import bgMusicSrc from "../assets/music/the-way-you-look-at-me.mp3";
 
 import "../styles/styles.scss";
+
+const audio = new Audio(bgMusicSrc);
+audio.loop = true;
+audio.autoplay = true;
+
+// Play after interaction
+document.body.addEventListener(
+  "click",
+  () => {
+    audio.play().catch((err) => console.log("Autoplay failed:", err));
+  },
+  { once: true }
+);
 
 console.log("Wedding Invitation Script Loaded!");
 
