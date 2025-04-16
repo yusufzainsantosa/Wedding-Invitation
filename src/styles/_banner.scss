@@ -1,6 +1,6 @@
 .cover {
   height: 100vh;
-  background-position: center center;
+  background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -23,7 +23,7 @@
 
   &_bottom {
     padding: 10em 0 3em;
-    background-image: url("@/assets/images/gallery9.webp");
+    background-image: url("@/assets/images/gallery12.webp");
 
     h2 {
       margin: 0;
