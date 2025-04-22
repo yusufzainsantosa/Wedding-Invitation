@@ -54,7 +54,7 @@
     }
 
     .copyright {
-      margin-top: 7em;
+      margin-top: 50px;
     }
   }
 
@@ -103,5 +103,9 @@
   p {
     color: $white;
     margin-bottom: 0;
+  }
+
+  .text-footer {
+    margin-bottom: 30px;
   }
 }
