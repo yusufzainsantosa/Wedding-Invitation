@@ -47,7 +47,6 @@ console.log("Wedding Invitation Script Loaded!");
 
     navbar.addEventListener("click", function (event) {
       if (event.target.classList.contains("nav-link")) {
-        console.log(event.target);
         offcanvasNavbar.hide();
       }
     });
